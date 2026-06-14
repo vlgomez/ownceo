@@ -1,8 +1,9 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { Lock, BarChart3, TrendingUp, TrendingDown } from 'lucide-react'
 import { FUNDS, FUND_MAP } from '../data/investmentFunds'
 import { runSimulation } from '../utils/simulatorEngine'
 import SimulatorChart from '../components/simulator/SimulatorChart'
+import { useDiagnosticResult } from '../hooks/useDiagnosticResult'
 
 const MONTHS_ES = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic']
 const START_YEARS = Array.from({ length: 21 }, (_, i) => 2005 + i)  // 2005–2025
@@ -21,8 +22,19 @@ function durationLabel(months: number): string {
 }
 
 export default function InvestmentSimulator() {
+  const { result: diagResult, loading: diagLoading } = useDiagnosticResult()
   const [selectedFundId, setSelectedFundId] = useState('sp500')
   const [monthlyContrib, setMonthlyContrib] = useState('500')
+  const preloadedRef = useRef(false)
+
+  // Once the diagnostic loads, seed the contribution field once
+  useEffect(() => {
+    if (!diagLoading && !preloadedRef.current) {
+      preloadedRef.current = true
+      const mv = diagResult?.financialData.monthlyInvestment ?? 0
+      if (mv > 0) setMonthlyContrib(String(mv))
+    }
+  }, [diagResult, diagLoading])
   const [startMonth, setStartMonth] = useState(1)
   const [startYear, setStartYear] = useState(2015)
   const [returnMode, setReturnMode] = useState<'historical' | 'custom'>('historical')

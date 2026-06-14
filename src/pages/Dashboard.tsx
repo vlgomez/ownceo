@@ -9,6 +9,7 @@ import HealthScoreCard from '../components/dashboard/HealthScoreCard'
 import RatioBar from '../components/dashboard/RatioBar'
 import EmptyDashboard from '../components/dashboard/EmptyDashboard'
 import WealthProjection from '../components/shared/WealthProjection'
+import LoadingScreen from '../components/shared/LoadingScreen'
 import type { ProfileType } from '../types/diagnostic'
 
 const MOCK_TRANSACTIONS = [
@@ -38,8 +39,9 @@ function fmtEur(n: number): string {
 }
 
 export default function Dashboard() {
-  const { result } = useDiagnosticResult()
+  const { result, loading } = useDiagnosticResult()
 
+  if (loading) return <LoadingScreen />
   if (!result) return <EmptyDashboard />
 
   const {

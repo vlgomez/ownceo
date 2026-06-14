@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { QUESTIONS } from '../data/questions'
 import { useDiagnostic } from '../hooks/useDiagnostic'
+import { useAuth } from '../hooks/useAuth'
+import { saveDiagnostic } from '../services/diagnostics'
 import TestQuestion from '../components/onboarding/TestQuestion'
 import FinancialForm from '../components/onboarding/FinancialForm'
 import DiagnosticResult from '../components/onboarding/DiagnosticResult'
@@ -15,6 +17,8 @@ const PROFILE_COLORS: Record<string, string> = {
 const TOTAL = QUESTIONS.length
 
 export default function Diagnostico() {
+  const { user } = useAuth()
+
   const {
     phase,
     questionIndex,
@@ -27,7 +31,9 @@ export default function Diagnostico() {
     goBackToTest,
     submitFinancialData,
     reset,
-  } = useDiagnostic()
+  } = useDiagnostic((newResult) => {
+    if (user) void saveDiagnostic(newResult, user.id)
+  })
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100">

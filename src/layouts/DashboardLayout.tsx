@@ -1,17 +1,23 @@
 import { Outlet, NavLink, Link } from 'react-router-dom'
 import { LayoutDashboard, MessageSquare, Map, Activity, Settings, LogOut, TrendingUp } from 'lucide-react'
+import { useAuth } from '../hooks/useAuth'
 
 const navItems = [
-  { to: '/dashboard',             icon: LayoutDashboard, label: 'Dashboard' },
-  { to: '/plan',                  icon: Map,             label: 'Mi Plan' },
-  { to: '/investment-simulator',  icon: Activity,        label: 'Simulador' },
-  { to: '/chat',                  icon: MessageSquare,   label: 'Asistente IA' },
+  { to: '/dashboard',            icon: LayoutDashboard, label: 'Dashboard' },
+  { to: '/plan',                 icon: Map,             label: 'Mi Plan' },
+  { to: '/investment-simulator', icon: Activity,        label: 'Simulador' },
+  { to: '/chat',                 icon: MessageSquare,   label: 'Asistente IA' },
 ]
 
 export default function DashboardLayout() {
+  const { user, signOut } = useAuth()
+
+  const emailLabel = user?.email?.split('@')[0] ?? 'Usuario'
+  const initial = (user?.email?.[0] ?? 'U').toUpperCase()
+
   return (
     <div className="flex min-h-screen bg-slate-950 text-slate-100">
-      {/* Sidebar */}
+      {/* ── Sidebar ── */}
       <aside className="flex w-64 flex-col border-r border-slate-800 bg-slate-900">
         <div className="border-b border-slate-800 p-6">
           <Link to="/" className="text-xl font-bold text-white">
@@ -45,17 +51,17 @@ export default function DashboardLayout() {
             <Settings size={18} />
             Configuración
           </button>
-          <Link
-            to="/"
-            className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-slate-100 transition-colors"
+          <button
+            onClick={signOut}
+            className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-400 hover:bg-slate-800 hover:text-red-400 transition-colors"
           >
             <LogOut size={18} />
-            Salir
-          </Link>
+            Cerrar sesión
+          </button>
         </div>
       </aside>
 
-      {/* Main content */}
+      {/* ── Main content ── */}
       <div className="flex flex-1 flex-col overflow-hidden">
         <header className="border-b border-slate-800 bg-slate-900 px-8 py-4">
           <div className="flex items-center justify-between">
@@ -65,11 +71,11 @@ export default function DashboardLayout() {
             </div>
             <div className="flex items-center gap-3">
               <div className="text-right">
-                <p className="text-sm font-medium text-slate-100">Usuario</p>
+                <p className="text-sm font-medium text-slate-100">{emailLabel}</p>
                 <p className="text-xs text-slate-500">Plan Gratis</p>
               </div>
               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-600 text-sm font-bold text-white">
-                U
+                {initial}
               </div>
             </div>
           </div>

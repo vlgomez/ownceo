@@ -8,6 +8,7 @@ import { useDiagnosticResult } from '../hooks/useDiagnosticResult'
 import { buildPlan } from '../utils/planEngine'
 import EmptyDashboard from '../components/dashboard/EmptyDashboard'
 import WealthProjection from '../components/shared/WealthProjection'
+import LoadingScreen from '../components/shared/LoadingScreen'
 import type { FinancialGoal, RoadmapMonth } from '../utils/planEngine'
 import type { ProfileType } from '../types/diagnostic'
 
@@ -114,8 +115,9 @@ function RoadmapCard({ month }: { month: RoadmapMonth }) {
 // ─── page ────────────────────────────────────────────────────────────────────
 
 export default function Plan() {
-  const { result } = useDiagnosticResult()
+  const { result, loading } = useDiagnosticResult()
 
+  if (loading) return <LoadingScreen />
   if (!result) return <EmptyDashboard />
 
   const plan = buildPlan(result)

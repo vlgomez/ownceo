@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import type { DiagnosticPhase, DiagnosticResult, FinancialData } from '../types/diagnostic'
 import { buildResult } from '../utils/diagnosticEngine'
 
@@ -28,7 +28,10 @@ function persist(result: DiagnosticResult) {
   } catch {}
 }
 
-export function useDiagnostic() {
+export function useDiagnostic(onResultReady?: (result: DiagnosticResult) => void) {
+  // Use a ref so the callback never stales out inside the memoized submitFinancialData
+  const onResultReadyRef = useRef(onResultReady)
+  onResultReadyRef.current = onResultReady
   const [result] = useState<DiagnosticResult | null>(loadSaved)
   const [phase, setPhase] = useState<DiagnosticPhase>(result ? 'result' : 'test')
   const [questionIndex, setQuestionIndex] = useState(0)
@@ -80,6 +83,7 @@ export function useDiagnostic() {
       setCurrentResult(computed)
       persist(computed)
       setPhase('result')
+      onResultReadyRef.current?.(computed)
     },
     [answers],
   )
