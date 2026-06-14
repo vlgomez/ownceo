@@ -1,10 +1,12 @@
 import { Outlet, NavLink, Link } from 'react-router-dom'
-import { LayoutDashboard, MessageSquare, Map, Activity, Settings, LogOut, TrendingUp } from 'lucide-react'
+import { LayoutDashboard, MessageSquare, Map, Activity, Settings, LogOut, TrendingUp, History, Target } from 'lucide-react'
 import { useAuth } from '../hooks/useAuth'
 
 const navItems = [
   { to: '/dashboard',            icon: LayoutDashboard, label: 'Dashboard' },
   { to: '/plan',                 icon: Map,             label: 'Mi Plan' },
+  { to: '/history',              icon: History,         label: 'Historial' },
+  { to: '/goals',                icon: Target,          label: 'Objetivos' },
   { to: '/investment-simulator', icon: Activity,        label: 'Simulador' },
   { to: '/chat',                 icon: MessageSquare,   label: 'Asistente IA' },
 ]

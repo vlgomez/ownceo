@@ -72,6 +72,18 @@ export async function saveDiagnostic(result: DiagnosticResult, userId: string): 
   })
 }
 
+// Return all diagnostics for the user, oldest first.
+export async function getAllDiagnostics(userId: string): Promise<DiagnosticResult[]> {
+  const { data, error } = await supabase
+    .from('diagnostics')
+    .select('*')
+    .eq('user_id', userId)
+    .order('created_at', { ascending: true })
+
+  if (error || !data) return []
+  return (data as DiagnosticsRow[]).map(rowToResult)
+}
+
 // Return the most recently saved diagnostic for the user, or null if none.
 export async function getLatestDiagnostic(userId: string): Promise<DiagnosticResult | null> {
   const { data, error } = await supabase

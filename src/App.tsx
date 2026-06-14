@@ -9,6 +9,8 @@ import Chat from './pages/Chat'
 import Pricing from './pages/Pricing'
 import Diagnostico from './pages/Diagnostico'
 import Plan from './pages/Plan'
+import History from './pages/History'
+import Goals from './pages/Goals'
 import InvestmentSimulator from './pages/InvestmentSimulator'
 import Login from './pages/Login'
 import Register from './pages/Register'
@@ -36,6 +38,8 @@ export default function App() {
             <Route element={<DashboardLayout />}>
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="plan" element={<Plan />} />
+              <Route path="history" element={<History />} />
+              <Route path="goals" element={<Goals />} />
               <Route path="investment-simulator" element={<InvestmentSimulator />} />
               <Route path="chat" element={<Chat />} />
             </Route>
