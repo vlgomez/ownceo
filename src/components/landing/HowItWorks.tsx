@@ -34,8 +34,8 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="border-y border-slate-800 bg-slate-900/50">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-14 text-center">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
+        <div className="mb-8 text-center md:mb-14">
           <h2 className="mb-3 text-3xl font-bold text-white">Cómo funciona</h2>
           <p className="text-slate-400">De cero a claridad financiera total en menos de 10 minutos.</p>
         </div>

@@ -76,7 +76,7 @@ export default function InvestmentSimulator() {
       </div>
 
       {/* ── Main grid ── */}
-      <div className="grid gap-6 lg:grid-cols-[360px_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[360px_1fr] lg:items-start">
 
         {/* ── LEFT: Controls ── */}
         <div className="space-y-5">

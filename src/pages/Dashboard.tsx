@@ -130,7 +130,7 @@ export default function Dashboard() {
         </div>
         <Link
           to="/diagnostico"
-          className="hidden shrink-0 items-center gap-2 rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-300 hover:border-slate-500 hover:text-white transition-colors sm:flex"
+          className="hidden shrink-0 items-center gap-2 rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-300 transition-colors hover:border-slate-500 hover:text-white sm:flex"
         >
           <ClipboardList size={15} />
           Actualizar diagnóstico
@@ -149,8 +149,8 @@ export default function Dashboard() {
 
       {/* Ratios + Quick actions */}
       <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2 rounded-xl border border-slate-800 bg-slate-900 p-6">
-          <h2 className="mb-6 font-semibold text-white">Tus ratios financieros</h2>
+        <div className="lg:col-span-2 rounded-xl border border-slate-800 bg-slate-900 p-4 sm:p-6">
+          <h2 className="mb-4 font-semibold text-white sm:mb-6">Tus ratios financieros</h2>
           <div className="space-y-5">
             {ratios.map((r) => (
               <RatioBar key={r.label} {...r} />
@@ -158,7 +158,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <div className="rounded-xl border border-slate-800 bg-slate-900 p-6">
+        <div className="rounded-xl border border-slate-800 bg-slate-900 p-4 sm:p-6">
           <h2 className="mb-4 font-semibold text-white">Acciones rápidas</h2>
           <div className="space-y-2.5">
             <Link
@@ -192,7 +192,7 @@ export default function Dashboard() {
       </div>
 
       {/* Recommendations */}
-      <div className="rounded-xl border border-slate-800 bg-slate-900 p-6">
+      <div className="rounded-xl border border-slate-800 bg-slate-900 p-4 sm:p-6">
         <div className="mb-5 flex items-center justify-between gap-4">
           <h2 className="font-semibold text-white">🎯 Recomendaciones personalizadas</h2>
           <span className={`shrink-0 rounded-full px-3 py-1 text-xs font-medium ${PROFILE_BADGE[profile]}`}>
@@ -218,7 +218,7 @@ export default function Dashboard() {
       />
 
       {/* Mock transactions */}
-      <div className="rounded-xl border border-slate-800 bg-slate-900 p-6">
+      <div className="rounded-xl border border-slate-800 bg-slate-900 p-4 sm:p-6">
         <div className="mb-4 flex items-center justify-between">
           <h2 className="font-semibold text-white">Transacciones recientes</h2>
           <span className="rounded-full border border-slate-700 px-2.5 py-0.5 text-xs text-slate-500">

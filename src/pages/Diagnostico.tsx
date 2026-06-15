@@ -39,7 +39,7 @@ export default function Diagnostico() {
     <div className="min-h-screen bg-slate-950 text-slate-100">
       {/* Minimal header */}
       <header className="border-b border-slate-800/60">
-        <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-4xl items-center justify-between px-4 py-3.5 sm:px-6">
           <Link to="/" className="text-lg font-bold text-white">
             Own<span className="text-violet-500">CEO</span>
           </Link>
@@ -56,7 +56,7 @@ export default function Diagnostico() {
 
           <Link
             to="/"
-            className="text-xs text-slate-600 hover:text-slate-400 transition-colors"
+            className="hidden text-xs text-slate-600 transition-colors hover:text-slate-400 sm:block"
           >
             ← Volver al inicio
           </Link>
@@ -64,7 +64,7 @@ export default function Diagnostico() {
       </header>
 
       {/* Content */}
-      <div className="mx-auto max-w-4xl px-6 py-14">
+      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6 md:py-14">
         {phase === 'test' && (
           <TestQuestion
             question={QUESTIONS[questionIndex]}

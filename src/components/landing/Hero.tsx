@@ -10,14 +10,14 @@ const mockStats = [
 
 export default function Hero() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
-      <div className="grid items-center gap-16 lg:grid-cols-2">
+    <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
+      <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
         {/* Copy */}
         <div>
           <span className="mb-5 inline-flex items-center rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-sm text-violet-400">
             Diagnóstico financiero gratuito
           </span>
-          <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-white md:text-6xl">
+          <h1 className="mb-6 text-4xl font-bold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
             Deja de adivinar.{' '}
             <span className="text-violet-500">Empieza a planificar.</span>
           </h1>

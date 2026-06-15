@@ -22,8 +22,8 @@ const mockConversation = [
 
 export default function AIComplement() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
-      <div className="grid items-center gap-12 lg:grid-cols-2">
+    <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
+      <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-12">
         {/* Copy */}
         <div>
           <div className="mb-4 flex items-center gap-2">

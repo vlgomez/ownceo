@@ -41,8 +41,8 @@ const calculators = [
 
 export default function Calculators() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-20">
-      <div className="mb-14 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <section className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
+      <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between md:mb-14">
         <div>
           <h2 className="mb-3 text-3xl font-bold text-white">Calculadoras financieras</h2>
           <p className="max-w-xl text-slate-400">

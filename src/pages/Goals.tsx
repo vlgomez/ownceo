@@ -283,8 +283,8 @@ export default function Goals() {
 
       {/* ── Create form ── */}
       {showForm && (
-        <div className="rounded-2xl border border-violet-500/25 bg-slate-900 p-6">
-          <div className="mb-6 flex items-center justify-between">
+        <div className="rounded-2xl border border-violet-500/25 bg-slate-900 p-4 sm:p-6">
+          <div className="mb-5 flex items-center justify-between sm:mb-6">
             <h2 className="font-semibold text-white">Nuevo objetivo</h2>
             <button
               onClick={closeForm}
@@ -466,18 +466,18 @@ export default function Goals() {
             )}
 
             {/* Actions */}
-            <div className="flex items-center justify-end gap-3 border-t border-slate-800 pt-4">
+            <div className="flex flex-col-reverse gap-3 border-t border-slate-800 pt-4 sm:flex-row sm:justify-end">
               <button
                 type="button"
                 onClick={closeForm}
-                className="rounded-xl border border-slate-700 px-5 py-2.5 text-sm font-medium text-slate-300 hover:bg-slate-800 transition-colors"
+                className="w-full rounded-xl border border-slate-700 px-5 py-3 text-sm font-medium text-slate-300 transition-colors hover:bg-slate-800 sm:w-auto sm:py-2.5"
               >
                 Cancelar
               </button>
               <button
                 type="submit"
                 disabled={saving}
-                className="flex items-center gap-2 rounded-xl bg-violet-600 px-5 py-2.5 text-sm font-semibold text-white hover:bg-violet-500 transition-colors disabled:opacity-50"
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-violet-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-violet-500 disabled:opacity-50 sm:w-auto sm:py-2.5"
               >
                 {saving ? <Loader2 size={15} className="animate-spin" /> : <Plus size={15} />}
                 {saving ? 'Guardando…' : 'Crear objetivo'}

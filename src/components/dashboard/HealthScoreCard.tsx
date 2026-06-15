@@ -25,8 +25,8 @@ export default function HealthScoreCard({ result }: Props) {
   })
 
   return (
-    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-      <div className="flex items-start justify-between gap-4 mb-6">
+    <div className="rounded-2xl border border-slate-800 bg-slate-900 p-4 sm:p-6">
+      <div className="mb-4 flex items-start justify-between gap-4 sm:mb-6">
         {/* Profile info */}
         <div className="flex items-center gap-3">
           <span className="text-4xl">{cfg.emoji}</span>

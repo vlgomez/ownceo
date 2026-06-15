@@ -42,7 +42,7 @@ export default function Chat() {
 
       <div className="flex flex-1 flex-col rounded-xl border border-slate-800 bg-slate-900 overflow-hidden">
         {/* Messages area */}
-        <div className="flex-1 overflow-auto p-6">
+        <div className="flex-1 overflow-auto p-4 sm:p-6">
           {messages.length === 0 ? (
             <div className="flex h-full flex-col items-center justify-center py-12 text-center">
               <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-violet-600/20">

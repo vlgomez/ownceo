@@ -43,8 +43,8 @@ const profiles = [
 export default function FinancialProfiles() {
   return (
     <section className="border-y border-slate-800 bg-slate-900/50">
-      <div className="mx-auto max-w-6xl px-6 py-20">
-        <div className="mb-14 text-center">
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 md:py-20">
+        <div className="mb-8 text-center md:mb-14">
           <h2 className="mb-3 text-3xl font-bold text-white">¿Cuál es tu perfil financiero?</h2>
           <p className="mx-auto max-w-xl text-slate-400">
             Cada persona tiene un punto de partida diferente. OwnCEO te identifica y te da

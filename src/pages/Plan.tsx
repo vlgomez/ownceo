@@ -161,7 +161,7 @@ export default function Plan() {
         <h2 className="mb-4 text-sm font-semibold uppercase tracking-wider text-slate-500">Resumen actual</h2>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {/* Profile + health */}
-          <div className="sm:col-span-2 lg:col-span-1 rounded-xl border border-slate-800 bg-slate-900 p-5 flex flex-col gap-3">
+          <div className="flex flex-col gap-3 rounded-xl border border-slate-800 bg-slate-900 p-5 sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-3">
               <span className="text-3xl">{cfg.emoji}</span>
               <div>
@@ -205,7 +205,7 @@ export default function Plan() {
       </section>
 
       {/* ── Progreso visual ── */}
-      <section className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
+      <section className="rounded-2xl border border-slate-800 bg-slate-900 p-4 sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="font-semibold text-white">Progreso hacia tus objetivos</h2>
@@ -226,7 +226,7 @@ export default function Plan() {
             transition={{ duration: 1.2, ease: 'easeOut', delay: 0.1 }}
           />
         </div>
-        <div className="mt-3 flex gap-6">
+        <div className="mt-3 flex flex-wrap gap-3 sm:gap-6">
           {plan.goals.map((g) => {
             const s = STATUS_CFG[g.status]
             return (
@@ -284,7 +284,7 @@ export default function Plan() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="rounded-2xl border border-violet-500/25 bg-violet-600/8 p-8 text-center">
+      <section className="rounded-2xl border border-violet-500/25 bg-violet-600/8 p-6 text-center sm:p-8">
         <h2 className="text-lg font-bold text-white">¿Han cambiado tus finanzas?</h2>
         <p className="mt-2 text-sm text-slate-400 max-w-md mx-auto">
           Actualiza tu diagnóstico cuando cambien tus ingresos, gastos o metas. Tu plan se regenerará automáticamente.
